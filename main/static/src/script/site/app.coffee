@@ -18,3 +18,5 @@ $ -> ($ 'html.user-merge').each ->
 $ -> ($ 'html.admin-config').each ->
   init_admin_config()
 
+$ -> ($ 'html.gae').each ->
+  location.href = 'https://plus.google.com/events/c2vgibklep2lkn69nfl57rf1rkk'

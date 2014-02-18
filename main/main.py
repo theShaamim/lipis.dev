@@ -35,6 +35,15 @@ def welcome():
   return flask.render_template('welcome.html', html_class='welcome')
 
 
+@app.route('/gae')
+def gae():
+  return flask.render_template(
+      'gae.html',
+      html_class='gae',
+      title='Building web apps like a pro using Google App Engine',
+    )
+
+
 ###############################################################################
 # Sitemap stuff
 ###############################################################################
