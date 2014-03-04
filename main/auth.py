@@ -15,6 +15,7 @@ import util
 
 from main import app
 
+_signals = flask.signals.Namespace()
 
 ###############################################################################
 # Flask Login
@@ -109,6 +110,29 @@ def admin_required(f):
       return flask.redirect(flask.url_for('signin', next=flask.request.url))
     return flask.abort(403)
   return decorated_function
+
+
+permission_registered = _signals.signal('permission-registered')
+
+
+def permission_required(permission=None):
+  def permission_decorator(f):
+    # default to decorated function name as permission
+    perm = permission or f.func_name
+
+    permission_registered.send(f, permission=perm)
+
+    @functools.wraps(f)
+    def decorated_function(*args, **kws):
+      if is_logged_in() and current_user_db().has_permission(perm):
+        return f(*args, **kws)
+      if not is_logged_in():
+        if flask.request.path.startswith('/_s/'):
+          return flask.abort(401)
+        return flask.redirect(flask.url_for('signin', next=flask.request.url))
+      return flask.abort(403)
+    return decorated_function
+  return permission_decorator
 
 
 ###############################################################################
@@ -270,10 +294,9 @@ facebook = facebook_oauth.remote_app(
 @facebook.authorized_handler
 def facebook_authorized(resp):
   if resp is None:
-    return 'Access denied: reason=%s error=%s' % (
-      flask.request.args['error_reason'],
-      flask.request.args['error_description']
-    )
+    flask.flash(u'You denied the request to sign in.')
+    return flask.redirect(util.get_next_url())
+
   flask.session['oauth_token'] = (resp['access_token'], '')
   me = facebook.get('/me')
   user_db = retrieve_user_from_facebook(me.data)
