@@ -44,6 +44,15 @@ def gae():
     )
 
 
+@app.route('/gae-talk')
+def gae_talk():
+  return flask.render_template(
+      'gae-talk.html',
+      html_class='gae-talk',
+      title='Building web apps like a pro using Google App Engine',
+    )
+
+
 ###############################################################################
 # Sitemap stuff
 ###############################################################################
