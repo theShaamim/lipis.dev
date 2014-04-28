@@ -9,6 +9,9 @@ builtins:
 - deferred: on
 - appstats: on
 
+inbound_services:
+- warmup
+
 libraries:
 - name: jinja2
   version: latest
@@ -22,6 +25,12 @@ handlers:
   static_files: static/robots.txt
   upload: static/robots.txt
 
+- url: /p/(.*\.ttf)
+  static_files: static/\1
+  upload: static/(.*\.ttf)
+  mime_type: font/ttf
+  expiration: 1000d
+
 - url: /p/
   static_dir: static/
   expiration: 1000d
@@ -30,17 +39,21 @@ handlers:
   script: main.app
 
 skip_files:
+- ^(.*/)?#.*#
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?.*\.bak$
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*~
+- ^(.*/)?Icon\r
+- ^(.*/)?\..*
 - ^(.*/)?app\.yaml
 - ^(.*/)?app\.yml
 - ^(.*/)?index\.yaml
 - ^(.*/)?index\.yml
-- ^(.*/)?#.*#
-- ^(.*/)?.*~
-- ^(.*/)?.*\.py[co]
-- ^(.*/)?.*/RCS/.*
-- ^(.*/)?\..*
-- ^(.*/)?.*\.bak$
-- ^(.*/)?Icon\r
 - ^lib/.*
-- ^static/src/.*
 - ^static/dst/.*
+- ^static/ext/coffee/.*
+- ^static/ext/css/.*
+- ^static/ext/js/.*
+- ^static/ext/less/.*
+- ^static/src/.*

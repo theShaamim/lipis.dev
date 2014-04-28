@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 
 import logging
 
 from flask.ext import wtf
-from google.appengine.api import mail
 import flask
 
 import config
@@ -19,6 +18,7 @@ app.jinja_env.globals.update(update_query_argument=util.update_query_argument)
 
 import admin
 import auth
+import task
 import user
 
 
@@ -128,16 +128,9 @@ def feedback():
 
   form = FeedbackForm(obj=auth.current_user_db())
   if form.validate_on_submit():
-    mail.send_mail(
-        sender=config.CONFIG_DB.feedback_email,
-        to=config.CONFIG_DB.feedback_email,
-        subject='[%s] %s' % (
-            config.CONFIG_DB.brand_name,
-            form.subject.data,
-          ),
-        reply_to=form.email.data or config.CONFIG_DB.feedback_email,
-        body='%s\n\n%s' % (form.message.data, form.email.data)
-      )
+    body = '%s\n\n%s' % (form.message.data, form.email.data)
+    kwargs = {'reply_to': form.email.data} if form.email.data else {}
+    task.send_mail_notification(form.subject.data, body, **kwargs)
     flask.flash('Thank you for your feedback!', category='success')
     return flask.redirect(flask.url_for('welcome'))
 
@@ -147,6 +140,15 @@ def feedback():
       html_class='feedback',
       form=form,
     )
+
+
+###############################################################################
+# Warmup request
+###############################################################################
+@app.route('/_ah/warmup')
+def warmup():
+  # TODO: put your warmup code here
+  return 'success'
 
 
 ###############################################################################
