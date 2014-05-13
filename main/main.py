@@ -35,16 +35,16 @@ def welcome():
   return flask.render_template('welcome.html', html_class='welcome')
 
 
-@app.route('/gae-aarhus')
+@app.route('/gae-aarhus/')
 def gae():
   return flask.render_template(
-      'gae.html',
-      html_class='gae',
+      'gae-aarhus.html',
+      html_class='gae-talk',
       title='Building web apps like a pro using Google App Engine',
     )
 
 
-@app.route('/gae-talk')
+@app.route('/gae-talk/')
 def gae_talk():
   return flask.render_template(
       'gae-talk.html',
