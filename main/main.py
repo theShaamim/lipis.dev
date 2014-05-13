@@ -35,7 +35,7 @@ def welcome():
   return flask.render_template('welcome.html', html_class='welcome')
 
 
-@app.route('/gae')
+@app.route('/gae-aarhus')
 def gae():
   return flask.render_template(
       'gae.html',

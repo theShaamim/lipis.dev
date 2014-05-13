@@ -22,4 +22,4 @@ $ -> ($ 'html.admin-config').each ->
   init_admin_config()
 
 $ -> ($ 'html.gae').each ->
-  location.href = 'https://plus.google.com/events/c2vgibklep2lkn69nfl57rf1rkk'
+  location.href = 'https://plus.google.com/events/c5du3ag4pgq1scg21573s1ppom0'
