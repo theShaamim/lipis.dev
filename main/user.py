@@ -20,18 +20,10 @@ from main import app
 @app.route('/user/')
 @auth.admin_required
 def user_list():
-  user_dbs, more_cursor = util.retrieve_dbs(
-      model.User.query(),
-      limit=util.param('limit', int),
-      cursor=util.param('cursor'),
-      order=util.param('order') or '-created',
-      admin=util.param('admin', bool),
-      active=util.param('active', bool),
-      permissions=util.param('permissions', list),
-    )
+  user_dbs, user_cursor = model.User.get_dbs()
 
   if flask.request.path.startswith('/_s/'):
-    return util.jsonify_model_dbs(user_dbs, more_cursor)
+    return util.jsonify_model_dbs(user_dbs, user_cursor)
 
   permissions = list(UserUpdateForm._permission_choices)
   permissions += util.param('permissions', list) or []
@@ -40,7 +32,7 @@ def user_list():
       html_class='user-list',
       title='User List',
       user_dbs=user_dbs,
-      more_url=util.generate_more_url(more_cursor),
+      next_url=util.generate_next_url(user_cursor),
       has_json=True,
       permissions=sorted(set(permissions)),
     )
@@ -94,7 +86,7 @@ def user_update(user_id):
   if form.validate_on_submit():
     if not util.is_valid_username(form.username.data):
       form.username.errors.append('This username is invalid.')
-    elif not is_username_available(form.username.data, user_db):
+    elif not model.User.is_username_available(form.username.data, user_db):
       form.username.errors.append('This username is already taken.')
     else:
       form.populate_obj(user_db)
@@ -227,16 +219,3 @@ def merge_user_dbs(user_db, deprecated_keys):
     if not deprecated_db.username.startswith('_'):
       deprecated_db.username = '_%s' % deprecated_db.username
   ndb.put_multi(deprecated_dbs)
-
-
-###############################################################################
-# Helpers
-###############################################################################
-def is_username_available(username, self_db=None):
-  user_dbs, more_cursor = util.retrieve_dbs(
-      model.User.query(),
-      username=username,
-      limit=2,
-    )
-  c = len(user_dbs)
-  return not (c == 2 or c == 1 and self_db and self_db.key != user_dbs[0].key)
