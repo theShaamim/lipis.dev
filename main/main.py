@@ -46,7 +46,7 @@ def projects():
   return flask.render_template(
       'projects.html',
       html_class='projects',
-      title='Projects',
+      title='My Projects',
     )
 
 

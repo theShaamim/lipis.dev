@@ -2,150 +2,156 @@
 
 # block content
   <div class="page-header">
+    <a href="{{url_for('welcome')}}">
+      <img class="pull-right img-thumbnail" src="http://gravatar.com/avatar/a8518c33a76987dd41dd26497563fee9?d=identicon&r=x&s=128" width="64">
+    </a>
     <h1>{{title}}</h1>
+    <p>
+      All of the following projects were developed mostly by me.
+    </p>
+    <p>
+      Some of the projects, due to limited free time because of my day job are
+      not finished and most of them are using the basic (or slightly modified)
+      Bootstrap theme.
+    </p>
   </div>
 
-  <div class="row">
-    <div class="col-md-4 col-sm-6">
-    </div>
-  </div>
-
-  <div class="table-responsive">
-    <table class="table table-bordered table-hover">
-      <tbody>
-        <tr>
-          <th colspan="2">For developers (open source)</th>
-        </tr>
-        <tr>
-          <td class="col-xs-3"><a href="https://gae-init.appspot.com">gae-init</a></td>
-          <td class="col-xs-7">
-            <strong>gae-init</strong> is the easiest way to kick start new
-            applications on Google App Engine using Flask, Bootstrap and tons
-            of other cool features.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="http://babel.gae-init.appspot.com">gae-init-babel</a></td>
-          <td>
-            Clone of <strong>gae-init</strong> project, with i18n and L10n
-            support.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="http://upload.gae-init.appspot.com">gae-init-upload</a></td>
-          <td>
-            Clone of <strong>gae-init</strong> project, with Google Cloud
-            Storage support.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="http://debug.gae-init.appspot.com">gae-init-debug</a></td>
-          <td>
-            Clone of <strong>gae-init</strong> project, with more debug tools.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="https://gae-init.appspot.com/signin/">gae-init-auth</a></td>
-          <td>
-            Clone of <strong>gae-init</strong> project, up to 10 more OAuth
-            options.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="http://docs.gae-init.appspot.com">gae-init-docs</a></td>
-          <td>
-            The documentation and the tutorial for the <strong>gae-init</strong>
-            projects.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="http://lipis.github.io/bootstrap-social/">Bootstrap Social</a></td>
-          <td>Social Sign-In Buttons made in pure CSS based on Bootstrap and Font Awesome.</td>
-        </tr>
-        <tr>
-          <td><a href="http://lipis.github.io/flag-icon-css/">flag-icon-css</a></td>
-          <td>CSS for vector based country flags.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/lim/webapp-sceleton">WebApp Sceleton</a></td>
-          <td>
-            A nice starting point for CoffeeScript, Less, Jasmine, Grunt, Bower
-            and more..
-          </td>
-        </tr>
-        <tr>
-          <th colspan="2">Pet Projects</th>
-        </tr>
-        <tr>
-          <td><a href="http://lim-life-line.appspot.com">Life Line</a></td>
-          <td>
-            See all the places that you've visited on a map like a line.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="http://hurry-app.appspot.com">Hurry App</a></td>
-          <td>
-            Hurry App is a URL based counter. It is good for launch dates,
-            milestones, birthdays, anniversaries, you name it.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="http://www.thesmallestcreature.com">The smallest Creature</a></td>
-          <td>The official web site of the band <strong>The smallest Creature</strong></td>
-        </tr>
-        <tr>
-          <td><a href="http://latest.priventapp.com">Privent</a></td>
-          <td>
-            Privent is a web application to store all your photos, organized as
-            events, privetly and only share them with people you know.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="http://www.lessfolio.com/">Lessfolio</a>:
-            <a href="http://www.kiebdoj.com/">Aleksandra</a>,
-            <a href="http://mwdao.ksymeon.com/">Kostas</a>
-          </td>
-          <td>
-            Portfolios for photo enthusiasts or professionals. Built to be fast
-            and easy to user for everyone.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="https://code.google.com/p/chess-at-nite/">Chess At Nite</a></td>
-          <td>
-            A quite powerfull chess engine that was done during the AI course
-            at the university. It was the only one in the history of the course
-            that our professor couldn't beat. I was mostly responsible for the
-            move generator, the overall architecture and the UI of the app.
-          </td>
-        </tr>
-        <tr>
-          <th colspan="2">For 3rd Paries</th>
-        </tr>
-        <tr>
-          <td><a href="http://www.dodonegone.com">DoDoneGone</a></td>
-          <td>
-            DoDoneGone helps people with anxiety problems to do what their fear
-            would otherwise prevent them from doing. This could be driving the
-            bus, shopping, speaking in public or climbing on a ladder.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="http://eyetribe-dev.appspot.com/">The Eye Tribe</a></td>
-          <td>
-            One of the suggested official web site for The Eye Tribe company.
-          </td>
-        </tr>
-        <tr>
-          <td><a href="http://less-enigma.appspot.com">Enigma</a></td>
-          <td>
-            A nice way for companies to get instant feedback from their
-            employees.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
+  <table class="table table-bordered table-hover">
+    <tbody>
+      <tr>
+        <th colspan="2">For Developers (open source)</th>
+      </tr>
+      <tr>
+        <td class="col-xs-2"><a href="https://gae-init.appspot.com">gae-init</a></td>
+        <td class="col-xs-8">
+          <strong>gae-init</strong> is the easiest way to kick start new
+          applications on Google App Engine using Flask, Bootstrap and tons
+          of other cool <a href="http://docs.gae-init.appspot.com/features/">features</a>.
+        </td>
+      </tr>
+      <tr>
+        <td><a href="http://babel.gae-init.appspot.com">gae-init-babel</a></td>
+        <td>
+          Clone of <strong>gae-init</strong> project, with i18n and L10n
+          support.
+        </td>
+      </tr>
+      <tr>
+        <td><a href="http://upload.gae-init.appspot.com">gae-init-upload</a></td>
+        <td>
+          Clone of <strong>gae-init</strong> project, with Google Cloud
+          Storage support.
+        </td>
+      </tr>
+      <tr>
+        <td><a href="http://debug.gae-init.appspot.com">gae-init-debug</a></td>
+        <td>
+          Clone of <strong>gae-init</strong> project, with more debug tools.
+        </td>
+      </tr>
+      <tr>
+        <td><a href="https://gae-init.appspot.com/signin/">gae-init-auth</a></td>
+        <td>
+          Clone of <strong>gae-init</strong> project, up to 10 more OAuth
+          options.
+        </td>
+      </tr>
+      <tr>
+        <td><a href="http://docs.gae-init.appspot.com">gae-init-docs</a></td>
+        <td>
+          The documentation and the tutorial for the <strong>gae-init</strong>
+          projects.
+        </td>
+      </tr>
+      <tr>
+        <td><a href="http://lipis.github.io/bootstrap-social/">Bootstrap Social</a></td>
+        <td>Social Sign-In Buttons made in pure CSS based on Bootstrap and Font Awesome.</td>
+      </tr>
+      <tr>
+        <td><a href="http://lipis.github.io/flag-icon-css/">flag-icon-css</a></td>
+        <td>CSS for vector based country flags.</td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/lim/webapp-sceleton">WebApp Sceleton</a></td>
+        <td>
+          A nice starting point for CoffeeScript, Less, Jasmine, Grunt, Bower
+          and more..
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">More Open Source Projects</th>
+      </tr>
+      <tr>
+        <td><a href="http://lim-life-line.appspot.com">Life Line</a></td>
+        <td>
+          See all the places that you've visited on a map like a line.
+        </td>
+      </tr>
+      <tr>
+        <td><a href="http://hurry-app.appspot.com">Hurry App</a></td>
+        <td>
+          Hurry App is a URL based counter. It is good for launch dates,
+          milestones, birthdays, anniversaries, you name it.
+        </td>
+      </tr>
+      <tr>
+        <td><a href="http://www.thesmallestcreature.com">The smallest Creature</a></td>
+        <td>The official web site of the band <strong>The smallest Creature</strong></td>
+      </tr>
+      <tr>
+        <td><a href="https://code.google.com/p/chess-at-nite/">Chess At Nite</a></td>
+        <td>
+          A quite powerfull chess engine that was done during the AI course
+          at the university. It was the only one in the history of the course
+          that our professor couldn't beat. I was mostly responsible for the
+          move generator, the overall architecture and the UI of the app.
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">Pet Projects</th>
+      </tr>
+      <tr>
+        <td><a href="http://latest.priventapp.com">Privent</a></td>
+        <td>
+          Privent is a web application to store all your photos, organized as
+          events, privetly and only share them with people you know.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="http://www.lessfolio.com/">Lessfolio</a>:
+          <a href="http://www.kiebdoj.com/">Aleksandra</a>,
+          <a href="http://mwdao.ksymeon.com/">Kostas</a>
+        </td>
+        <td>
+          Portfolios for photo enthusiasts or professionals. Built to be fast
+          and easy to user for everyone.
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">For Third Paries</th>
+      </tr>
+      <tr>
+        <td><a href="http://www.dodonegone.com">DoDoneGone</a></td>
+        <td>
+          DoDoneGone helps people with anxiety problems to do what their fear
+          would otherwise prevent them from doing. This could be driving the
+          bus, shopping, speaking in public or climbing on a ladder.
+        </td>
+      </tr>
+      <tr>
+        <td><a href="http://eyetribe-dev.appspot.com/">The Eye Tribe</a></td>
+        <td>
+          One of the suggested official web site for The Eye Tribe company.
+        </td>
+      </tr>
+      <tr>
+        <td><a href="http://less-enigma.appspot.com">Enigma</a></td>
+        <td>
+          A nice way for companies to get instant feedback from their
+          employees.
+        </td>
+      </tr>
+    </tbody>
+  </table>
 # endblock
