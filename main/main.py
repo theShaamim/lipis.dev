@@ -50,21 +50,15 @@ def projects():
     )
 
 
-@app.route('/gae-aarhus/')
-def gae():
-  return flask.render_template(
-      'gae-aarhus.html',
-      html_class='gae-talk',
-      title='Building web apps like a pro using Google App Engine',
-    )
+@app.route('/gae-<talk>/')
+def gae(talk):
+  if talk not in ['aarhus', 'berlin', 'talk']:
+    flask.abort(404)
 
-
-@app.route('/gae-talk/')
-def gae_talk():
   return flask.render_template(
-      'gae-talk.html',
+      'gae-%s.html' % talk,
       html_class='gae-talk',
-      title='Building web apps like a pro using Google App Engine',
+      title='Building Web Apps Like a Pro Using Google App Engine',
     )
 
 
