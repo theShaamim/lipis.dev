@@ -52,7 +52,7 @@ def projects():
 
 @app.route('/gae-<talk>/')
 def gae(talk):
-  if talk not in ['aarhus', 'berlin', 'talk']:
+  if talk not in ['aarhus', 'berlin', 'talk', 'lviv']:
     flask.abort(404)
 
   return flask.render_template(
