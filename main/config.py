@@ -23,41 +23,16 @@ else:
     import calendar
     CURRENT_VERSION_TIMESTAMP = calendar.timegm(datetime.utcnow().timetuple())
   CURRENT_VERSION_DATE = datetime.utcfromtimestamp(CURRENT_VERSION_TIMESTAMP)
+  USER_AGENT = '%s/%s' % (APPLICATION_ID, CURRENT_VERSION_ID)
 
   import model
-
   CONFIG_DB = model.Config.get_master_db()
   SECRET_KEY = CONFIG_DB.flask_secret_key.encode('ascii')
+  RECAPTCHA_PUBLIC_KEY = CONFIG_DB.recaptcha_public_key
+  RECAPTCHA_PRIVATE_KEY = CONFIG_DB.recaptcha_private_key
+  RECAPTCHA_LIMIT = 8
+
 
 DEFAULT_DB_LIMIT = 64
-
-
-###############################################################################
-# Client modules, also used by the run.py script.
-###############################################################################
-STYLES = [
-    'src/style/style.less',
-  ]
-
-SCRIPTS = [
-    ('libs', [
-        'ext/js/jquery/jquery.js',
-        'ext/js/momentjs/moment.js',
-        'ext/js/nprogress/nprogress.js',
-        'ext/js/bootstrap/alert.js',
-        'ext/js/bootstrap/button.js',
-        'ext/js/bootstrap/transition.js',
-        'ext/js/bootstrap/collapse.js',
-        'ext/js/bootstrap/dropdown.js',
-        'ext/js/bootstrap/tooltip.js',
-      ]),
-    ('scripts', [
-        'src/script/common/service.coffee',
-        'src/script/common/util.coffee',
-        'src/script/site/app.coffee',
-        'src/script/site/admin.coffee',
-        'src/script/site/profile.coffee',
-        'src/script/site/signin.coffee',
-        'src/script/site/user.coffee',
-      ]),
-  ]
+SIGNIN_RETRY_LIMIT = 4
+TAG_SEPARATOR = ' '

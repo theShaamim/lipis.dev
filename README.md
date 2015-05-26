@@ -14,54 +14,55 @@ Running the Development Environment
 -----------------------------------
 
     $ cd /path/to/project-name
-    $ ./run.py -s
+    $ gulp
 
 To test it visit `http://localhost:8080/` in your browser.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-To watch for changes of your `*.less` & `*.coffee` files and compile them
-automatically to `*.css` & `*.js` execute in another bash:
-
-    $ ./run.py -w
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 For a complete list of commands:
 
-    $ ./run -h
+    $ gulp help
+
+
+Initializing or Resetting the project
+------------------------------------
+
+    $ cd /path/to/project-name
+    $ npm install
+    $ gulp
+
+If something goes wrong you can always do:
+
+    $ gulp reset
+    $ npm install
+    $ gulp
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Grunt is used only for watching for changes and live reloading the page.
-Install [grunt command line interface][grunt-cli] as a global package:
+To install [Gulp][] as a global package:
 
-    $ npm install -g grunt-cli
-
-and then from the root execute with no arguments:
-
-    $ grunt
+    $ npm install -g gulp
 
 Deploying on Google App Engine
 ------------------------------
 
-Before deploying make sure that the `app.yaml` and `config.py` are up to date
-and you ran the `run.py` script to minify all the static files:
+    $ gulp deploy
 
-    $ ./run.py -m
-    $ appcfg.py update main
+Before deploying make sure that the `main/app.yaml` and `gulp/config.coffee`
+are up to date.
 
 Tech Stack
 ----------
 
   - [Google App Engine][], [NDB][]
-  - [Jinja2][], [Flask][], [Flask-WTF][]
+  - [Jinja2][], [Flask][], [Flask-RESTful][], [Flask-WTF][]
   - [CoffeeScript][], [Less][]
   - [Bootstrap][], [Font Awesome][], [Social Buttons][]
   - [jQuery][], [NProgress][], [Moment.js][]
   - [OpenID][] sign in (Google, Facebook, Twitter)
   - [Python 2.7][], [pip][], [virtualenv][]
-  - [Grunt][], [Bower][]
+  - [Gulp][], [Bower][]
 
 Requirements
 ------------
@@ -93,14 +94,14 @@ Author
 [coffeescript]: http://coffeescript.org/
 [docs]: http://docs.gae-init.appspot.com
 [feature list]: http://docs.gae-init.appspot.com/features/
+[flask-restful]: https://flask-restful.readthedocs.org
 [flask-wtf]: https://flask-wtf.readthedocs.org
 [flask]: http://flask.pocoo.org/
 [font awesome]: http://fortawesome.github.com/Font-Awesome/
 [gmist]: https://github.com/gmist
 [google app engine sdk for python]: https://developers.google.com/appengine/downloads
 [google app engine]: https://developers.google.com/appengine/
-[grunt-cli]: https://github.com/gruntjs/grunt-cli
-[grunt]: http://gruntjs.com/
+[gulp]: http://gulpjs.com
 [jinja2]: http://jinja.pocoo.org/docs/
 [joernhees]: https://github.com/joernhees
 [jquery]: http://jquery.com/

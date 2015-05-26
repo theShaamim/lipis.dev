@@ -4,29 +4,16 @@
     "bootstrap": "~3",
     "font-awesome": "~4",
     "jquery": "~2",
-    "momentjs": "~2",
+    "lesshat": "~3",
+    "moment": "~2",
     "nprogress": "https://github.com/lipis/nprogress.git#master"
   },
-  "exportsOverride": {
+  "overrides": {
     "bootstrap": {
-      "js": "js/*.js",
-      "less": "less/*.less",
-      "less/mixins": "less/mixins/*.less",
-      "font": "fonts/*"
+      "main": ["less/**", "fonts/*", "js/*"]
     },
     "font-awesome": {
-      "less": "less/*.less",
-      "font": "fonts/*"
-    },
-    "jquery": {
-      "js": "dist/jquery.js"
-    },
-    "momentjs": {
-      "js": "*.js"
-    },
-    "nprogress": {
-      "js": "*.js",
-      "less": "*.less"
+      "main": ["less/*", "fonts/*"]
     }
   }
 }
