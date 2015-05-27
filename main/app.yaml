@@ -40,7 +40,6 @@ handlers:
 
 - url: /.*
   script: main.app
-  secure: always
 
 skip_files:
 - ^(.*/)?#.*#
