@@ -15,6 +15,11 @@ def welcome():
   return flask.render_template('welcome.html', html_class='welcome')
 
 
+@app.route('/googlefe164a33bda4034b.html')
+def google_verify():
+  return 'google-site-verification: googlefe164a33bda4034b.html'
+
+
 @app.route('/projects/')
 def projects():
   return flask.render_template(
