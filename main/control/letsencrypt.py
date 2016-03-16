@@ -9,9 +9,8 @@ from main import app
 
 @app.route('/.well-known/acme-challenge/<challenge>')
 def letsencrypt(challenge):
-  responses = {
-      'FU51VSlX4gypQpOqmnq-E_F80VTjVX2YfVgLU3VrX3I': 'FU51VSlX4gypQpOqmnq-E_F80VTjVX2YfVgLU3VrX3I.ypeY55PiET8BkyzWzASvUN5l52P2Tqi38of5mRR2rc8'
-    }
-  response = flask.make_response(responses.get(challenge, ''))
+  response = flask.make_response('oups', 404)
+  if challenge == config.CONFIG_DB.letsencrypt_challenge:
+    response = flask.make_response(config.CONFIG_DB.letsencrypt_response)
   response.headers['Content-Type'] = 'text/plain'
   return response
