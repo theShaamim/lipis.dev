@@ -1,7 +1,7 @@
 # coding: utf-8
 
-from flask.ext import wtf
 import flask
+import flask_wtf
 import wtforms
 
 import auth
@@ -10,6 +10,7 @@ import util
 from main import app
 
 TESTS = [
+  'pageres',
   'responsive',
   'grid',
   'heading',
@@ -27,7 +28,7 @@ TESTS = [
 ]
 
 
-class TestForm(wtf.Form):
+class TestForm(flask_wtf.Form):
   name = wtforms.StringField(
     'Text',
     [wtforms.validators.required()], filters=[util.strip_filter],
@@ -74,7 +75,7 @@ class TestForm(wtf.Form):
   )
   public = wtforms.StringField('Public Key', [wtforms.validators.optional()])
   private = wtforms.StringField('Private Key', [wtforms.validators.optional()])
-  recaptcha = wtf.RecaptchaField()
+  recaptcha = flask_wtf.RecaptchaField()
 
 
 @app.route('/admin/test/<test>/', methods=['GET', 'POST'])
@@ -88,7 +89,7 @@ def admin_test(test=None):
     pass
 
   return flask.render_template(
-    'test/test_one.html' if test else 'test/test.html',
+    'admin/test/test_one.html' if test else 'admin/test/test.html',
     title='Test: %s' % test.title() if test else 'Test',
     html_class='test',
     form=form,
