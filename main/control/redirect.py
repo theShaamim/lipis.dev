@@ -6,6 +6,8 @@ from main import app
 
 
 # Wedding related
+@app.route('/map')
 @app.route('/polis')
-def polis():
+@app.route('/map/')
+def map():
   return flask.redirect('https://goo.gl/maps/bEYkWr7aeGv')
