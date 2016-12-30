@@ -11,3 +11,10 @@ from main import app
 @app.route('/map/')
 def map():
   return flask.redirect('https://goo.gl/maps/bEYkWr7aeGv')
+
+
+@app.route('/wed/')
+@app.route('/weding/')
+@app.route('/wedding/')
+def wedding():
+  return flask.redirect('https://wedding.lip.is')
