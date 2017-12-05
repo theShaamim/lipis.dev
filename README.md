@@ -1,6 +1,8 @@
 gae-init
 ========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/lipis/lip.is.svg?token=5737f35dac22940cda5bb422fb9a23dd69e3b55f409b4a75b43abaf379d4987f&ts=1512476132057)](https://greenkeeper.io/)
+
 [![Slack Status](https://gae-init-slack.herokuapp.com/badge.svg)](https://gae-init-slack.herokuapp.com)
 
 > **gae-init** is the easiest boilerplate to kick start new applications on Google
