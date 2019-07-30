@@ -13,6 +13,8 @@ from main import app
 @app.route('/')
 @app.route('/<path:path>/')
 def welcome(path=None):
+  if flask.request.host in ['lip.is', 'www.lipis.dev', 'www.lip.is']:
+    return flask.redirect('https://lipis.dev')
   if path:
     return flask.redirect(flask.url_for('welcome'))
   return flask.render_template(
