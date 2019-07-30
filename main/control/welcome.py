@@ -11,11 +11,15 @@ from main import app
 # Welcome
 ###############################################################################
 @app.route('/')
-def welcome():
+@app.route('/<path:path>/')
+def welcome(path=None):
+  if path:
+    return flask.redirect(flask.url_for('welcome'))
   return flask.render_template(
     'welcome.html',
     title='Panayiotis Lipiridis (Lipis)',
     html_class='welcome',
+    description='Web dude at Wire',
   )
 
 
