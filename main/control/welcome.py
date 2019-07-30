@@ -12,7 +12,11 @@ from main import app
 ###############################################################################
 @app.route('/')
 def welcome():
-  return flask.render_template('welcome.html', html_class='welcome')
+  return flask.render_template(
+    'welcome.html',
+    title='Panayiotis Lipiridis (Lipis)',
+    html_class='welcome',
+  )
 
 
 ###############################################################################
