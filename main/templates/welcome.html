@@ -13,7 +13,9 @@
         <li><a href="https://linkedin.com/in/lipis/"><span class="fa fa-fw fa-linkedin"></span></a></li>
         <li><a href="https://facebook.com/lipis"><span class="fa fa-fw fa-facebook"></span></a></li>
         <li><a href="https://medium.com/@lipis"><span class="fa fa-fw fa-medium"></span></a></li>
-        <li><a href="mailto:yo@lip.is"><span class="fa fa-fw fa-envelope-o"></span></a></li>
+        # if config.CONFIG_DB.feedback_email
+          <li><a href="mailto:{{config.CONFIG_DB.feedback_email}}"><span class="fa fa-fw fa-envelope-o"></span></a></li>
+        # endif
       </ul>
       <h4>Web Dude at <a href="https://wire.com">Wire</a></h4>
     </div>
@@ -22,7 +24,7 @@
 
 # block content
   <ul class="list-unstyled lead">
-    <li><a href="https://stackoverflow.com/cv/lipis"><span class="fa fa-fw fa-stack-overflow"></span> StackOverflow CV</a></li>
+    <li><a href="https://stackoverflow.com/users/story/8418?view=Cv"><span class="fa fa-fw fa-stack-overflow"></span> StackOverflow CV</a></li>
   </ul>
   <ul class="list-unstyled lead">
     <li><a href="https://gae-init.appspot.com"><span class="fa fa-fw fa-github"></span> gae-init</a></li>
